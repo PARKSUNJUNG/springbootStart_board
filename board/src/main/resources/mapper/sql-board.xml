@@ -33,4 +33,24 @@
 			)
 		]]>
 	</insert>
+	<update id="updateHitCount" parameterType="int">
+		<![CDATA[
+			UPDATE
+				t_board
+			set
+			 	hit_cnt = hit_cnt+1
+			where 
+			 	board_idx= #{boardIdx}
+		]]>
+	</update>
+	<select id="selectBoardDetail" parameterType="int" resultType="board.board.dto.BoardDto">
+		<![CDATA[
+			select
+				board_idx, title, contents, hit_cnt, created_datetime, creator_id
+			from 
+				t_board
+			where 
+				board_idx = #{boardIdx} and deleted_yn='N'
+		]]>
+	</select>
 </mapper>
