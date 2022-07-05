@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import board.board.dto.BoardDto;
@@ -40,4 +41,14 @@ public class BoardController {
 		return "redirect:/board/openBoardList.do";
 	}
 	
+	//게시글 상세화면
+	@RequestMapping("/board/openBoardDetail.do")
+	public ModelAndView openBoardDetail(@RequestParam int boardIdx) throws Exception {
+		ModelAndView mv = new ModelAndView("/board/boardDetail");
+		
+		BoardDto board = boardService.selectBoardDetail(boardIdx);
+		mv.addObject("board", board);
+		
+		return mv;
+	}
 }

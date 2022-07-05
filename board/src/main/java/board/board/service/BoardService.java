@@ -9,5 +9,7 @@ public interface BoardService {
 	List<BoardDto> selectBoardList() throws Exception; //게시판 목록
 	
 	void insertBoard(BoardDto board) throws Exception; //게시글 등록
+	
+	BoardDto selectBoardDetail(int boardIdx) throws Exception;
 
 }
