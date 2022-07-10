@@ -11,5 +11,9 @@ public interface BoardService {
 	void insertBoard(BoardDto board) throws Exception; //게시글 등록
 	
 	BoardDto selectBoardDetail(int boardIdx) throws Exception;
+	
+	void updateBoard(BoardDto board) throws Exception; //게시글 수정
+	
+	void deleteBoard(int boardIdx) throws Exception; //게시글 삭제
 
 }
