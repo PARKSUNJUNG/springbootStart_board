@@ -2,13 +2,15 @@ package board.board.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import board.board.dto.BoardDto;
 
 public interface BoardService {
 	
 	List<BoardDto> selectBoardList() throws Exception; //게시판 목록
 	
-	void insertBoard(BoardDto board) throws Exception; //게시글 등록
+	void insertBoard(BoardDto board, MultipartHttpServletRequest multipartHttpServletRequest) throws Exception; //게시글 등록
 	
 	BoardDto selectBoardDetail(int boardIdx) throws Exception;
 	
