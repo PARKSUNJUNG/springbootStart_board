@@ -16,7 +16,8 @@
 			ORDER BY board_idx DESC			
 		]]>
 	</select>
-	<insert id="insertBoard" parameterType="board.board.dto.BoardDto">
+	<insert id="insertBoard" parameterType="board.board.dto.BoardDto"
+		useGeneratedKeys="true" keyProperty="boardIdx">
 		<![CDATA[
 			INSERT INTO t_board
 			(
@@ -32,6 +33,30 @@
 				'admin'
 			)
 		]]>
+	</insert>
+	<insert id="insertBoardFileList" parameterType="board.board.dto.BoardFileDto">
+		<![CDATA[
+			INSERT INTO t_file
+			(
+				board_idx,
+				original_file_name,
+				stored_file_path,
+				file_size,
+				creator_id,
+				created_datetime
+			)
+			VALUES
+		]]>
+		<foreach collection="list" item="item" separator=",">
+			(
+				#{item.boardIdx},
+				#{item.originalFileName},
+				#{item.storedFilePath},
+				#{item.fileSize},
+				'admin',
+				NOW()
+			)
+		</foreach>
 	</insert>
 	<update id="updateHitCount" parameterType="int">
 		<![CDATA[
