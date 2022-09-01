@@ -97,9 +97,11 @@ public class RestBoardController {
 			
 			response.getOutputStream().write(files);
 			response.getOutputStream().flush();
-			response.getOutputStream().close();			
+			response.getOutputStream().close();
+			
 		}
 	}
+	
 	
 	
 	

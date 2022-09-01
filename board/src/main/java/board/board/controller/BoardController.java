@@ -101,7 +101,6 @@ public class BoardController {
 			response.getOutputStream().write(files); // 버퍼의 출력스트림을 출력
 			response.getOutputStream().flush(); // 버퍼에 남아있는 출력스트림을 출력
 			response.getOutputStream().close(); // 출력스트림 닫기
-			
 		}
 		
 	}
